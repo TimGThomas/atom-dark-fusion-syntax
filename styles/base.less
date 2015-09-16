@@ -238,7 +238,7 @@ atom-text-editor .search-results .marker.current-result .region,
     &.string {
       &.begin,
       &.end {
-        color: @red;
+        color: @orange; //@red;
       }
     }
 
@@ -248,7 +248,7 @@ atom-text-editor .search-results .marker.current-result .region,
     }
 
     &.tag {
-      color: saturate(spin(darken(@blue, 12%), 5), 12%);
+      color: @blue; // saturate(spin(darken(@blue, 12%), 5), 12%);
     }
 
     &.bold {
@@ -502,3 +502,37 @@ atom-text-editor[mini] .scroll-view,
 :host([mini]) .scroll-view {
   padding-left: 1px;
 }
+
+// overrides
+
+.cursor-line {
+  background-color: @syntax-gutter-background-color-selected;
+}
+
+atom-text-editor .gutter .line-number.git-line-modified, atom-text-editor::shadow .gutter .line-number.git-line-modified,
+atom-text-editor .gutter .line-number.git-line-added, atom-text-editor::shadow .gutter .line-number.git-line-added {
+  padding-left: calc(~"1.0em - 2px");
+}
+
+.comment {
+  font-style: oblique;
+}
+
+// GitHub-flavored Markdown
+.source.gfm {
+
+  .markup {
+    -webkit-font-smoothing: inherit;
+  }
+
+  .link {
+    color: @blue;
+  }
+
+  .italic {
+    color: inherit;
+  }
+
+}
+
+// /overrides
